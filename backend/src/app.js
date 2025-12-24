@@ -2,6 +2,11 @@
 // While coding → npm run dev
 // Deploying → npm start
 // Production server → npm run prod
+import dotenv from "dotenv";
+
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 
 import express from "express";
 import { createServer } from "node:http";
@@ -24,10 +29,10 @@ app.use(express.urlencoded({ limit: "40kb", extended: true }));
 
 app.use("/api/v1/users", userRoutes);
 
+const dbUrl = process.env.ATLASDB_URL;
+
 const start = async () => {
-  const connectionDb = await mongoose.connect(
-    "mongodb+srv://shivamkumarrnc25_db_user:shivam25@cluster0.izio7se.mongodb.net/?appName=Cluster0"
-  );
+  const connectionDb = await mongoose.connect(dbUrl);
   console.log(`MONGO Connected dDB Host: ${connectionDb.connection.host}`);
   server.listen(app.get("port"), () => {
     console.log("listening on port 8080");

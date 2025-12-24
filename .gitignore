@@ -8,8 +8,7 @@ backend/node_modules/
 backend/.env
 frontend/.env
 
-# Frontend environment config (if contains secrets)
-frontend/environment.js
+
 
 # Logs
 npm-debug.log*

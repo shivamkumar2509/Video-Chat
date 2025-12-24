@@ -1,6 +1,21 @@
-frontend/node_modules
-backend/node_modules
-frontend/.gitignore
-backend/.gitignore
-frontend/environment.js
+# Node dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Environment variables (secrets)
+.env
 backend/.env
+frontend/.env
+
+# Frontend environment config (if contains secrets)
+frontend/environment.js
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
